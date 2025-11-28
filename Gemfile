@@ -1,12 +1,10 @@
 source "https://rubygems.org"
 
-gem "jekyll", "~> 4.4.1"
-gem "jekyll-feed", "~> 0.12"
-
-# For GitHub Pages compatibility
-group :jekyll_plugins do
-  gem "jekyll-feed", "~> 0.12"
-end
+gem "jekyll", "~> 4.3.3"
+gem "jekyll-feed", "~> 0.17"
+gem "jekyll-sitemap", "~> 1.4"
+gem "kramdown", "~> 2.4"
+gem "kramdown-parser-gfm", "~> 1.1"
 
 # Windows compatibility
 platforms :mingw, :x64_mingw, :mswin, :jruby do

@@ -3,8 +3,6 @@ name: Deploy Jekyll site to Pages
 on:
   push:
     branches: ["main"]
-  pull_request:
-    branches: ["main"]
 
 jobs:
   build:
@@ -19,20 +17,12 @@ jobs:
           ruby-version: '3.1'
           bundler-cache: true
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-
       - name: Install dependencies
         run: |
-          gem install jekyll
+          bundle config set force_ruby_platform true
           bundle install
 
       - name: Build site
-        env:
-          CLIENT_ID: ${{ secrets.CLIENT_ID }}
-          CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
         run: bundle exec jekyll build
 
       - name: Upload artifact
