@@ -1,60 +1,3 @@
-// ==========================================================
-// 1. HERO ANIMATION CLASS (Your new code for mobile fix)
-// ==========================================================
-class HeroAnimation {
-    constructor() {
-        this.container = document.getElementById('hero-canvas');
-        if (!this.container) return;
-
-        // Check if mobile and use simpler animation
-        this.isMobile = window.innerWidth <= 768;
-        
-        if (this.isMobile) {
-            this.createMobileFallback();
-            return;
-        }
-
-        // Original Three.js code for desktop...
-        // [Keep your existing desktop Three.js code here if applicable]
-    }
-
-    createMobileFallback() {
-        // Simple CSS animation for mobile instead of heavy Three.js
-        this.container.innerHTML = `
-            <div class="mobile-hero-bg" style="
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: linear-gradient(135deg, #8B7355 0%, #D4AF37 50%, #E83C91 100%);
-                opacity: 0.4;
-                animation: mobileWave 8s ease-in-out infinite;
-            "></div>
-        `;
-        
-        // Add CSS for mobile animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes mobileWave {
-                0%, 100% { transform: scale(1) rotate(0deg); }
-                50% { transform: scale(1.1) rotate(1deg); }
-            }
-        `;
-        document.head.appendChild(style);
-        
-        document.dispatchEvent(new Event('heroLoaded'));
-    }
-}
-
-// Initialize the Hero Animation
-new HeroAnimation();
-
-
-// ==========================================================
-// 2. MOBILE NAVIGATION AND SITE LOGIC (Your previous working code)
-// ==========================================================
-
 // Premium mobile navigation with enhanced performance
 document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger');
@@ -69,15 +12,22 @@ document.addEventListener('DOMContentLoaded', function() {
         header.style.opacity = '1';
     }
     
-    // ⭐ BFCache FIX: Force menu state reset on browser back/forward
+    // ==========================================================
+    // ⭐ BFCache FIX: Force menu state reset on browser back/forward (Issue 1 Fix)
+    // ==========================================================
     window.addEventListener('pageshow', function(event) {
+        // Check if the page is loaded from the cache (when using back/forward buttons)
         if (event.persisted) {
+            // Ensure the header is visible (Safety check)
             if (header) {
                 header.style.display = 'block';
                 header.style.visibility = 'visible';
                 header.style.opacity = '1';
             }
+            
+            // Remove active class from mobile menu elements
             if (navMenu && navMenu.classList.contains('active')) {
+                // If it's a mobile view, hide the menu
                 navMenu.classList.remove('active');
             }
             if (hamburger && hamburger.classList.contains('active')) {
@@ -85,17 +35,19 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
     });
+    // ==========================================================
     
-    // === Hamburger Click Handler (Fixes Mobile Menu) ===
     if (hamburger && navMenu) {
         hamburger.addEventListener('click', function() {
             hamburger.classList.toggle('active');
             navMenu.classList.toggle('active');
             
+            // FIX: Prevent navbar from hiding
             if (header) {
                 header.style.display = 'block';
             }
             
+            // Staggered animation for nav items
             if (navMenu.classList.contains('active')) {
                 animateMenuOpen();
             } else {
@@ -103,7 +55,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    // ===================================================
     
     // Staggered menu item animations on open with fade & slide
     function animateMenuOpen() {
@@ -138,6 +89,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 navMenu.classList.remove('active');
                 animateMenuClose();
                 
+                // FIX: Ensure navbar stays visible
                 if (header) {
                     header.style.display = 'block';
                 }
@@ -153,6 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 navMenu.classList.remove('active');
                 animateMenuClose();
                 
+                // FIX: Ensure navbar stays visible
                 if (header) {
                     header.style.display = 'block';
                 }
@@ -173,8 +126,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // ... (Keep the rest of your smooth scrolling and performance logic here) ...
-    
     // ========== SMOOTH SCROLLING FIX ==========
     
     // Modern smooth scrolling for all anchor links
@@ -255,11 +206,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-
-// ==========================================================
-// 3. INJECTED CSS STYLES (Keep this section outside of DOMContentLoaded)
-// ==========================================================
-
+// Add this CSS to ensure navbar never hides and improve performance
 const navbarFixStyles = `
     .header {
         display: block !important;
@@ -348,6 +295,7 @@ document.head.appendChild(style);
 
 // ========== ADDITIONAL PERFORMANCE FIXES ==========
 
+// Optimize hero animation performance
 window.addEventListener('load', function() {
     // Add subtle parallax effect to hero (optional)
     const hero = document.querySelector('.hero');

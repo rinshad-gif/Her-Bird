@@ -941,7 +941,7 @@ body {
 /* Mobile Responsive */
 
 .hamburger {
-    display: none !important;
+    display: none;
     flex-direction: column;
     cursor: pointer;
     
