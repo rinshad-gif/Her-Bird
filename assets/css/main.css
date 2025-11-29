@@ -100,7 +100,6 @@ body {
     gap: 2rem;
     margin-left: auto;
     margin-right: 0;
-    z-index:  9998 !important; 
 }
 
 .nav-link {
@@ -302,10 +301,7 @@ body {
     }
     
     .hamburger {
-        display: flex !important;
-        position: relative !important;
-        pointer-events: auto !important;
-        z-index: 9999 !important; 
+        display: block; 
     }
 
     .nav-menu.active {
@@ -1573,10 +1569,7 @@ body {
     }
     
     .hamburger {
-        display: flex !important;
-        position: relative !important;
-        pointer-events: auto !important;
-        z-index: 9999 !important; 
+        display: flex;
     }
 }
 
