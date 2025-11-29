@@ -12,6 +12,31 @@ document.addEventListener('DOMContentLoaded', function() {
         header.style.opacity = '1';
     }
     
+    // ==========================================================
+    // ⭐ BFCache FIX: Force menu state reset on browser back/forward (Issue 1 Fix)
+    // ==========================================================
+    window.addEventListener('pageshow', function(event) {
+        // Check if the page is loaded from the cache (when using back/forward buttons)
+        if (event.persisted) {
+            // Ensure the header is visible (Safety check)
+            if (header) {
+                header.style.display = 'block';
+                header.style.visibility = 'visible';
+                header.style.opacity = '1';
+            }
+            
+            // Remove active class from mobile menu elements
+            if (navMenu && navMenu.classList.contains('active')) {
+                // If it's a mobile view, hide the menu
+                navMenu.classList.remove('active');
+            }
+            if (hamburger && hamburger.classList.contains('active')) {
+                hamburger.classList.remove('active');
+            }
+        }
+    });
+    // ==========================================================
+    
     if (hamburger && navMenu) {
         hamburger.addEventListener('click', function() {
             hamburger.classList.toggle('active');

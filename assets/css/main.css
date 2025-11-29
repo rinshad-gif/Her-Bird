@@ -291,6 +291,58 @@ body {
     opacity: 0.6;
 }
 
+/* Navbar media */
+
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none; 
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    .hamburger {
+        display: block; 
+    }
+
+    .nav-menu.active {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start; 
+        position: fixed;
+        top: 83px;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        
+        padding: 40px 0;
+        z-index: 999;
+    }
+
+    .nav-item {
+        margin: 20px 0;
+        text-align: center;
+    }
+    
+    .nav-link {
+        color: white; 
+        font-size: 1.1rem; 
+        font-weight: 500;
+        letter-spacing: 1px;
+        transition: color 0.2s ease;
+    }
+
+    .nav-link:hover {
+        color: var(--brand-color);
+    }
+    
+    .header {
+        background: rgba(10, 10, 10, 0.85); 
+        border-bottom: none;
+    }
+}
+
 /* Product Sections */
 
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500&family=Montserrat:wght@400&display=swap');
@@ -902,57 +954,7 @@ body {
     transition: 0.3s;
 }
 
-/* Navbar media */
 
-@media (max-width: 768px) {
-    .nav-menu {
-        display: none; 
-        margin-left: 0;
-        margin-right: 0;
-    }
-    
-    .hamburger {
-        display: block; 
-    }
-
-    .nav-menu.active {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start; 
-        position: fixed;
-        top: 83px;
-        left: 0;
-        width: 100%;
-        height: 100vh;
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
-        
-        padding: 40px 0;
-        z-index: 999;
-    }
-
-    .nav-item {
-        margin: 20px 0;
-        text-align: center;
-    }
-    
-    .nav-link {
-        color: white; 
-        font-size: 1.1rem; 
-        font-weight: 500;
-        letter-spacing: 1px;
-        transition: color 0.2s ease;
-    }
-
-    .nav-link:hover {
-        color: var(--brand-color);
-    }
-    
-    .header {
-        background: rgba(10, 10, 10, 0.85); 
-        border-bottom: none;
-    }
-}
 
 /* //// */
 
