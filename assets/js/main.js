@@ -310,6 +310,7 @@ const navbarFixStyles = `
         color: var(--primary-nav-color) !important;
         visibility: visible !important;
         opacity: 1 !important;
+        text-decoration: none !important; /* Remove underline from links */
     }
     
     /* Ensure the entire header content is always visible */
@@ -334,6 +335,117 @@ const navbarFixStyles = `
         transform: translateZ(0);
     }
     
+    /* MOBILE MENU FIXES - Keep your existing design */
+    @media (max-width: 768px) {
+        .nav-menu.active {
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: flex-start !important;
+            position: fixed !important;
+            top: 83px !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100vh !important;
+            backdrop-filter: none !important;
+            -webkit-backdrop-filter: none !important;
+            background: rgba(10, 10, 10, 0.95) !important;
+            padding: 40px 0 !important;
+            z-index: 999 !important;
+        }
+        
+        .nav-item {
+            margin: 20px 0 !important;
+            text-align: center !important;
+        }
+        
+        .nav-link {
+            color: white !important;
+            font-size: 1.1rem !important;
+            font-weight: 500 !important;
+            letter-spacing: 1px !important;
+            transition: color 0.2s ease !important;
+            text-decoration: none !important;
+        }
+    
+        .nav-link:hover {
+            color: var(--brand-color) !important;
+            text-decoration: none !important;
+        }
+        
+        /* Remove underline effect in mobile */
+        .nav-link::after {
+            display: none !important;
+        }
+    }
+    
+    /* DESKTOP - Keep your original hover effects */
+    @media (min-width: 769px) {
+        .nav-link {
+            text-decoration: none !important;
+            color: var(--primary-nav-color) !important;
+            font-weight: 400 !important;
+            font-size: 0.95rem !important;
+            letter-spacing: 1px !important;
+            transition: all 0.3s ease !important;
+            position: relative !important;
+            padding: 0 0 5px 0 !important;
+        }
+    
+        .nav-link:hover {
+            color: var(--active-nav-color) !important;
+            text-decoration: none !important;
+        }
+    
+        .nav-link::after {
+            content: '' !important;
+            position: absolute !important;
+            width: 0 !important;
+            height: 1px !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            background-color: var(--active-nav-color) !important;
+            transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+        }
+    
+        .nav-link:hover::after {
+            width: 100% !important;
+        }
+    }
+    
+    /* Hamburger menu styling - Keep your original design */
+    .hamburger {
+        display: none !important;
+        flex-direction: column !important;
+        cursor: pointer !important;
+    }
+    
+    .bar {
+        width: 25px !important;
+        height: 3px !important;
+        background: var(--text-light) !important;
+        margin: 3px 0 !important;
+        transition: 0.3s !important;
+    }
+    
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0 !important;
+    }
+    
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg) !important;
+    }
+    
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg) !important;
+    }
+    
+    @media (max-width: 768px) {
+        .hamburger {
+            display: flex !important;
+        }
+    }
+    
+    /* Animation keyframes */
     @keyframes slideInLeft {
         from {
             opacity: 0;
