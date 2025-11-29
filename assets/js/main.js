@@ -292,6 +292,70 @@ if (navigator.userAgent.includes('Safari') && !navigator.userAgent.includes('Chr
     });
 }
 
+// Listen for pageshow event (triggers on back/forward navigation)
+window.addEventListener('pageshow', function(event) {
+    // This fires when page is loaded from back/forward cache
+    if (event.persisted) {
+        console.log('Back/Forward navigation detected - fixing all styles');
+        
+        const header = document.querySelector('.header');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const navMenu = document.querySelector('.nav-menu');
+        const hamburger = document.querySelector('.hamburger');
+        
+        // CRITICAL: Force complete style reset and repaint
+        if (header) {
+            header.style.cssText = `
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                position: fixed !important;
+                top: 0 !important;
+                width: 100% !important;
+                z-index: 1000 !important;
+            `;
+        }
+        
+        // Force nav links to be visible with proper hover states
+        navLinks.forEach(link => {
+            link.style.cssText = `
+                color: var(--primary-nav-color) !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                display: block !important;
+                text-decoration: none !important;
+            `;
+            
+            // Re-apply hover event listeners
+            link.onmouseenter = function() {
+                this.style.color = 'var(--active-nav-color) !important';
+            };
+            link.onmouseleave = function() {
+                this.style.color = 'var(--primary-nav-color) !important';
+            };
+        });
+        
+        // CRITICAL: Ensure mobile menu is properly closed and styled
+        if (navMenu) {
+            navMenu.classList.remove('active');
+            navMenu.style.background = 'transparent !important';
+            navMenu.style.backdropFilter = 'none !important';
+        }
+        
+        if (hamburger && hamburger.classList.contains('active')) {
+            hamburger.classList.remove('active');
+        }
+        
+        // Add a class to body for CSS targeting
+        document.body.classList.add('pageshow');
+        
+        // Remove the class after styles are reapplied
+        setTimeout(() => {
+            document.body.classList.remove('pageshow');
+        }, 500); // Increased timeout for better styling application
+    }
+});
+
 // Add this CSS to ensure navbar never hides and improve performance
 const navbarFixStyles = `
     .header {
@@ -335,8 +399,63 @@ const navbarFixStyles = `
         transform: translateZ(0);
     }
     
-    /* MOBILE MENU FIXES - Keep your existing design */
+    /* CRITICAL: Force hover states to work after back/forward navigation */
+    .nav-link:hover,
+    .pageshow .nav-link:hover {
+        color: var(--active-nav-color) !important;
+        text-decoration: none !important;
+    }
+    
+    /* Force desktop hover underline after back/forward */
+    @media (min-width: 769px) {
+        .nav-link {
+            text-decoration: none !important;
+            color: var(--primary-nav-color) !important;
+            font-weight: 400 !important;
+            font-size: 0.95rem !important;
+            letter-spacing: 1px !important;
+            transition: all 0.3s ease !important;
+            position: relative !important;
+            padding: 0 0 5px 0 !important;
+        }
+    
+        .nav-link:hover,
+        .pageshow .nav-link:hover {
+            color: var(--active-nav-color) !important;
+            text-decoration: none !important;
+        }
+    
+        .nav-link::after {
+            content: '' !important;
+            position: absolute !important;
+            width: 0 !important;
+            height: 1px !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            background-color: var(--active-nav-color) !important;
+            transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+        }
+    
+        .nav-link:hover::after,
+        .pageshow .nav-link:hover::after {
+            width: 100% !important;
+        }
+        
+        /* Ensure desktop menu background stays transparent */
+        .nav-menu {
+            background: transparent !important;
+            backdrop-filter: none !important;
+        }
+    }
+    
+    /* MOBILE MENU FIXES - Prevent flash of black background */
     @media (max-width: 768px) {
+        .nav-menu {
+            background: transparent !important;
+            backdrop-filter: none !important;
+            transition: background-color 0.3s ease !important;
+        }
+        
         .nav-menu.active {
             display: flex !important;
             flex-direction: column !important;
@@ -367,7 +486,8 @@ const navbarFixStyles = `
             text-decoration: none !important;
         }
     
-        .nav-link:hover {
+        .nav-link:hover,
+        .pageshow .nav-link:hover {
             color: var(--brand-color) !important;
             text-decoration: none !important;
         }
@@ -375,40 +495,6 @@ const navbarFixStyles = `
         /* Remove underline effect in mobile */
         .nav-link::after {
             display: none !important;
-        }
-    }
-    
-    /* DESKTOP - Keep your original hover effects */
-    @media (min-width: 769px) {
-        .nav-link {
-            text-decoration: none !important;
-            color: var(--primary-nav-color) !important;
-            font-weight: 400 !important;
-            font-size: 0.95rem !important;
-            letter-spacing: 1px !important;
-            transition: all 0.3s ease !important;
-            position: relative !important;
-            padding: 0 0 5px 0 !important;
-        }
-    
-        .nav-link:hover {
-            color: var(--active-nav-color) !important;
-            text-decoration: none !important;
-        }
-    
-        .nav-link::after {
-            content: '' !important;
-            position: absolute !important;
-            width: 0 !important;
-            height: 1px !important;
-            bottom: 0 !important;
-            left: 0 !important;
-            background-color: var(--active-nav-color) !important;
-            transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
-        }
-    
-        .nav-link:hover::after {
-            width: 100% !important;
         }
     }
     
@@ -509,6 +595,11 @@ const navbarFixStyles = `
     .pageshow .nav-link,
     .pageshow .nav-menu {
         animation: forceRepaint 0.001s;
+    }
+    
+    /* CRITICAL: Prevent mobile menu background flash */
+    .nav-menu:not(.active) {
+        background: transparent !important;
     }
 `;
 
