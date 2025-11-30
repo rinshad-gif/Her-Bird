@@ -1,8 +1,12 @@
 backend:
-  name: github
+  name: git-gateway
   repo: rinshad-gif/Her-Bird
   # proxy_url: http://localhost:8081/api/v1
   branch: main
+  base_url: https://github.com
+  auth_type: implicit
+  app_id: Ov23liE7Uq13Bj7wC5P9
+  api_root: https://api.github.com
   site_domain: rinshad-gif.github.io
 
 media_folder: "assets/images/uploads"
