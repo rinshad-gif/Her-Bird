@@ -327,10 +327,8 @@ layout: home
                 {% endif %}
                 {% if page.offer and page.original_price %}
                 {% assign discount = page.original_price | minus: page.price %}
-                {% assign perc = discount | divided_by: page.original_price | times: 100 | round %}
-                {% if product.offer %}
-                    <span class="product-offer">{{ product.offer }}</span>
-                {% endif %}
+                {% assign perc = discount | times: 100.0 | divided_by: page.original_price | round %}
+                <span class="pd-offer-text">({{ perc }}% Off)</span>
                 {% endif %}
             </div>
 
