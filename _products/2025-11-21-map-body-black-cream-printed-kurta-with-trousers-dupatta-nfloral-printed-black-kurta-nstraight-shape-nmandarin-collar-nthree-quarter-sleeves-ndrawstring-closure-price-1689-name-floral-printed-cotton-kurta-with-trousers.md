@@ -1,6 +1,6 @@
 ---
 name: Floral Printed Cotton Kurta with Trousers & Dupatta
-slug: floral-kurta-set
+slug: floral-printed-kurta
 description: |-
   100% Original Products |
   Pay on delivery might be available |
