@@ -7,7 +7,7 @@ original_price: 4999
 offer: 67%
 category: Kurta
 featured: false
-image: /assets/images/uploads/imgi_8_bnahxzl0_45e3ad5d53414a7c95962ab35d428ff7.png
+image: /assets/images/uploads/imgi_82_bnahxzl0_45e3ad5d53414a7c95962ab35d428ff7.png
 gallery:
   - image: /assets/images/uploads/imgi_26_hg90t87e_3163896a7ce842d3bf22a25243caba83.webp
   - image: /assets/images/uploads/imgi_27_z1dhrdae_260393cd36f945dcae9dd0affaa820cd.webp
