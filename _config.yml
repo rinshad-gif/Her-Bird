@@ -4,7 +4,7 @@ description: "High-end boutique for sophisticated fashion"
 
 # Standard Jekyll configuration for GitHub Pages subfolder
 baseurl: "/Her-Bird"
-url: "https://rinshad-girl.github.io"
+url: "https://rinshad-gif.github.io"
 
 # --- NETLIFY CMS CONFIGURATION ---
 # Netlify CMS is expected to be available at /admin/
