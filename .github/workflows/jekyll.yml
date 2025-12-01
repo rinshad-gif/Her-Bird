@@ -17,6 +17,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Clean old build
+        run: rm -rf _site
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
