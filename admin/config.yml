@@ -2,8 +2,6 @@ backend:
   name: github
   repo: rinshad-gif/Her-Bird
   branch: main
-  auth_type: implicit
-  app_id: Ov23liE7Uq13Bj7wC5P9
 
 media_folder: "assets/images/uploads"
 public_folder: "/Her-Bird/assets/images/uploads"

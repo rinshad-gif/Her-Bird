@@ -13,26 +13,32 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+
       - name: Checkout
         uses: actions/checkout@v4
-      
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
-      
+
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.3'
           bundler-cache: true
-      
+
       - name: Install dependencies
         run: bundle install
-      
+
+      # ✅ BUILD JEKYLL
       - name: Build with Jekyll
-        run: bundle exec jekyll build --baseurl "/${{ github.event.repository.name }}"
+        run: |
+          bundle exec jekyll build --baseurl "/${{ github.event.repository.name }}"
+          mkdir -p _site/admin
+          cp -R admin/* _site/admin/
         env:
           JEKYLL_ENV: production
-      
+
+      # ✅ UPLOAD SITE
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -45,6 +51,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
