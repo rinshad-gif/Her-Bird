@@ -6,29 +6,25 @@
     <title>Her Bird Admin</title>
     <link rel="icon" type="image/x-icon" href="/Her-Bird/favicon.ico">
     <script src="https://unpkg.com/@staticcms/app@1.13.0/dist/static-cms-app.js"></script>
-    <style>
-        body { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; }
-        #nc-root { min-height: 100vh; }
-    </style>
 </head>
 <body>
+    <div id="nc-root"></div>
     <script>
         window.CMS_MANUAL_INIT = true;
         
+        // Initialize Static CMS with ALL your collections
         const CMS = window.initCMS({
             config: {
-                local_backend: false,
                 backend: {
                     name: "github",
                     repo: "rinshad-gif/Her-Bird",
                     branch: "main",
                     auth_scope: "public_repo",
-                    base_url: "https://oauth-proxy.netlify.app",
-                    auth_endpoint: "api/auth"
+                    base_url: "https://oauth-proxy.netlify.app"
                 },
+                locale: "en",
                 site_url: "https://rinshad-gif.github.io/Her-Bird",
                 display_url: "https://rinshad-gif.github.io/Her-Bird",
-                logo_url: "/Her-Bird/assets/images/logo.png",
                 media_folder: "assets/images/uploads",
                 public_folder: "/assets/images/uploads",
                 publish_mode: "editorial_workflow",
