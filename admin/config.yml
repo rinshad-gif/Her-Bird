@@ -2,15 +2,13 @@ backend:
   name: github
   repo: rinshad-gif/Her-Bird
   branch: main
-  base_url: https://oauth-proxy.netlify.app  # ADD THIS
   auth_type: implicit
   app_id: Ov23liE7Uq13Bj7wC5P9
 
 media_folder: "assets/images/uploads"
 public_folder: "/assets/images/uploads"
 
-# REMOVE THIS LINE - editorial_workflow doesn't work on GitHub Pages
-# publish_mode: editorial_workflow
+publish_mode: editorial_workflow
 
 collections:
   - name: "products"
@@ -20,7 +18,7 @@ collections:
     slug: "{{slug}}"
     fields:
       - { label: "Product Name", name: "name", widget: "string" }
-      - { label: "Slug", name: "slug", widget: "string", hint: "URL-friendly version (e.g., floral-embroidered-kurta)" }
+      - { label: "Slug", name: "slug", widget: "string" }
       - { label: "Short Description", name: "description", widget: "text" }
       - { label: "Full Description", name: "body", widget: "markdown" }
       - { label: "Price", name: "price", widget: "number", value_type: "float" }
@@ -82,6 +80,7 @@ collections:
           - { label: "Available Colors", name: "colors", widget: "string" }
           - { label: "Season", name: "season", widget: "select", options: ["All Season", "Spring", "Summer", "Fall", "Winter"], default: "All Season" }
       - { label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+
 
   - name: "testimonials"
     label: "Testimonials"
