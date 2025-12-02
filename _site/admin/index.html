@@ -1,27 +1,22 @@
 <!doctype html>
 <html>
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
   <title>Her Bird Admin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Prevent auto boot -->
-  <script>
-    window.CMS_MANUAL_INIT = true;
-  </script>
-
-  <!-- Load Decap -->
+  <!-- Decap CMS -->
   <script src="https://unpkg.com/decap-cms@3.9.0/dist/decap-cms.js"></script>
-  <script>console.log("Decap CMS forced deploy ", Date.now());</script>
 </head>
 
 <body>
+
+  <!-- CMS ROOT -->
   <div id="nc-root"></div>
 
   <script>
-    CMS.init({
-      config: "/Her-Bird/admin/config.yml"
-    });
+    CMS.init({ config: "/Her-Bird/admin/config.yml" });
   </script>
+
 </body>
 </html>

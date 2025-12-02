@@ -2,8 +2,8 @@ title: "Her Bird"
 email: "support@herbird.com"
 description: "High-end boutique for sophisticated fashion"
 
-url: "https://rinshad-gif.github.io"
-baseurl: "/Her-Bird"
+url: "https://rinshad-gif.github.io/Her-Bird"
+# baseurl: "/Her-Bird"
 
 theme: null
 plugins:
