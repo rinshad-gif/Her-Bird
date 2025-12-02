@@ -3,19 +3,27 @@
 <head>
   <meta charset="utf-8">
   <title>Her Bird Admin</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Decap CMS -->
-  <script src="https://unpkg.com/decap-cms@3.9.0/dist/decap-cms.js"></script>
+  <!-- Decap CMS Loader -->
+  <script src="https://unpkg.com/decap-cms@3.9.0/dist/decap-cms.js" defer></script>
 </head>
 
 <body>
 
-  <!-- CMS ROOT -->
   <div id="nc-root"></div>
 
   <script>
-    CMS.init({ config: "/Her-Bird/admin/config.yml" });
+    window.addEventListener("load", function () {
+      if (typeof CMS === "undefined") {
+        alert("Decap CMS did not load — CDN blocked or failed");
+        return;
+      }
+
+      CMS.init({
+        config: "/Her-Bird/admin/config.yml"
+      });
+    });
   </script>
 
 </body>
