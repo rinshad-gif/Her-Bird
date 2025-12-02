@@ -3,7 +3,7 @@ backend:
   repo: rinshad-gif/Her-Bird
   branch: main
   base_url: https://github-auth.decapcms.org
-  auth_endpoint: /auth
+auth_endpoint: https://github-auth.decapcms.org/auth
 
 media_folder: "assets/images/uploads"
 public_folder: "/Her-Bird/assets/images/uploads"
