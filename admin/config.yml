@@ -2,7 +2,7 @@ backend:
   name: github
   repo: rinshad-gif/Her-Bird
   branch: main
-  base_url: 
+  # base_url: 
   auth_endpoint: https://decap-oauth-21vi.vercel.app/api/auth
 
 media_folder: "assets/images/uploads"
