@@ -2,14 +2,32 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Admin</title>
-
-  <!-- Force correct CMS config path -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Her Bird Admin</title>
+  
+  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   <script>
-    window.CMS_CONFIG = "/Her-Bird/admin/config.yml";
+    // Initialize Decap CMS with GitHub backend
+    CMS.init({
+      config: {
+        backend: {
+          name: "github",
+          repo: "rinshad-gif/Her-Bird",
+          branch: "main",
+          auth_scope: "repo",
+          base_url: "https://decap-oauth-21vi.vercel.app",
+          auth_endpoint: "api/auth"
+        },
+        media_folder: "assets/images/uploads",
+        public_folder: "/assets/images/uploads",
+        publish_mode: "editorial_workflow",
+        collections: [
+          // PASTE YOUR ENTIRE COLLECTIONS CONFIG HERE
+          // Copy from your config.yml
+        ]
+      }
+    });
   </script>
-
-  <script src="https://unpkg.com/decap-cms@3.9.0/dist/decap-cms.js"></script>
 </head>
 <body>
   <div id="nc-root"></div>
