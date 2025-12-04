@@ -5,10 +5,10 @@ backend:
   base_url: https://decap-oauth-21vi.vercel.app
   auth_endpoint: /api/auth
 
-  media_folder: "assets/images/uploads"
-  public_folder: "/Her-Bird/assets/images/uploads"
+media_folder: "assets/images/uploads"
+public_folder: "/Her-Bird/assets/images/uploads"
 
-  publish_mode: editorial_workflow
+publish_mode: editorial_workflow
 
 collections:
   - name: "products"
