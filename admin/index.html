@@ -1,35 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Her Bird Admin</title>
-  
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-  <script>
-    // Initialize Decap CMS with GitHub backend
-    CMS.init({
-      config: {
-        backend: {
-          name: "github",
-          repo: "rinshad-gif/Her-Bird",
-          branch: "main",
-          auth_scope: "repo",
-          base_url: "https://decap-oauth-21vi.vercel.app",
-          auth_endpoint: "api/auth"
-        },
-        media_folder: "assets/images/uploads",
-        public_folder: "/assets/images/uploads",
-        publish_mode: "editorial_workflow",
-        collections: [
-          // PASTE YOUR ENTIRE COLLECTIONS CONFIG HERE
-          // Copy from your config.yml
-        ]
-      }
-    });
-  </script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Her Bird Admin</title>
+    <base href="/Her-Bird/">
 </head>
 <body>
-  <div id="nc-root"></div>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 </body>
 </html>
