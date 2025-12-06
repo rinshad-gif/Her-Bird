@@ -1,6 +1,7 @@
 backend:
   name: git-gateway
   branch: main
+  site_url: https://her-bird.netlify.app
 
 media_folder: "assets/images/uploads"
 public_folder: "/assets/images/uploads"
