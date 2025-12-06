@@ -1,13 +1,9 @@
 backend:
-  name: github
-  repo: rinshad-gif/Her-Bird
+  name: git-gateway
   branch: main
-  base_url: https://decap-oauth-21vi.vercel.app
-  auth_endpoint: api/auth
-  auth_scope: repo
 
-media_folder: assets/images/uploads
-public_folder: /Her-Bird/assets/images/uploads
+media_folder: "assets/images/uploads"
+public_folder: "/assets/images/uploads"
 
 publish_mode: editorial_workflow
 
