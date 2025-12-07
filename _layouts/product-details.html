@@ -293,107 +293,97 @@ layout: home
 </style>
 
 
-<div class="pd-wrapper">
-    <div class="pd-container">
+<section class="pd-wrapper">
+  <div class="pd-container">
 
-        <div class="pd-gallery-section">
-            <div class="pd-main-image-box">
-                <img id="mainImage" src="{{ page.image | relative_url }}" alt="{{ page.name }}">
-            </div>
+    <!-- LEFT: Gallery -->
+    <div class="pd-gallery-section">
+      <div class="pd-main-image-box">
+        <img
+          id="mainImage"
+          src="{{ page.image | relative_url }}"
+          alt="{{ page.name }}"
+        />
+      </div>
 
-            {% if page.gallery %}
-            <div class="pd-thumbnails">
-                <img src="{{ page.image | relative_url }}" onclick="changeImage(this.src)" class="active-thumb" alt="Thumbnail main">
-                {% for item in page.gallery %}
-                <img src="{{ item.image | relative_url }}" onclick="changeImage(this.src)" alt="Thumbnail {{ forloop.index }}">
-                {% endfor %}
-            </div>
-            {% endif %}
-        </div>
-
-        <div class="pd-info-section">
-            <p class="pd-breadcrumbs">
-                <a href="{{ '///' | relative_url }}">Home</a> / 
-                <a href="{{ '/products/' | relative_url }}">Collection</a> /
-                {{ page.category }}
-            </p>
-
-            <h1 class="pd-title">{{ page.name }}</h1>
-
-            <div class="pd-price-container">
-                <span style="color: green;" class="pd-price">₹{{ page.price }}</span>
-                {% if page.original_price %}
-                <span class="pd-old-price">₹{{ page.original_price }}</span>
-                {% endif %}
-                {% if page.offer and page.original_price %}
-                {% assign discount = page.original_price | minus: page.price %}
-                {% assign perc = discount | times: 100.0 | divided_by: page.original_price | round %}
-                <span class="pd-offer-text">({{ perc }}% Off)</span>
-                {% endif %}
-            </div>
-
-            <div class="pd-description">{{ content }}</div>
-
-            <div class="pd-accordion-section">
-                <div class="accordion-item">
-                    <div class="accordion-header">Product Details <span class="accordion-icon">+</span></div>
-                    <div class="accordion-content">
-                        {% if page.specifications %}
-                        <ul>
-                            {% if page.specifications.material %}<li><strong>Material:</strong> {{ page.specifications.material }}</li>{% endif %}
-                            {% if page.specifications.sizes %}<li><strong>Available Sizes:</strong> {{ page.specifications.sizes }}</li>{% endif %}
-                            {% if page.specifications.colors %}<li><strong>Colors:</strong> {{ page.specifications.colors }}</li>{% endif %}
-                        </ul>
-                        {% else %}
-                        <p>Fabric details available upon request.</p>
-                        {% endif %}
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <div class="accordion-header">Care & Handling <span class="accordion-icon">+</span></div>
-                    <div class="accordion-content">
-                        {% if page.specifications.care %}
-                        <p>{{ page.specifications.care }}</p>
-                        {% else %}
-                        <p>Dry clean only. Store in a garment bag away from direct sunlight.</p>
-                        {% endif %}
-                    </div>
-                </div>
-
-                <div class="accordion-item">
-                    <div class="accordion-header">Shipping & Returns <span class="accordion-icon">+</span></div>
-                    <div class="accordion-content">
-                        <p>Complimentary express shipping available. Returns within 14 days in original condition. Custom orders may vary.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="pd-action-block">
-                <a href="{{ '/contact/' | relative_url }}" class="btn-buy">Inquire Now</a>
-                <a href="{{ '///' | relative_url }}" style="text-decoration: none;" class="btn-whatsapp" title="Inquire via WhatsApp">Back</a>
-            </div>
-        </div>
+      {% if page.gallery %}
+      <div class="pd-thumbnails">
+        <img
+          src="{{ page.image | relative_url }}"
+          class="active-thumb"
+          onclick="changeImage(this.src)"
+        />
+        {% for item in page.gallery %}
+        <img
+          src="{{ item.image | relative_url }}"
+          onclick="changeImage(this.src)"
+        />
+        {% endfor %}
+      </div>
+      {% endif %}
     </div>
-</div>
+
+    <!-- RIGHT: Product Info -->
+    <div class="pd-info-section">
+
+      <p class="pd-breadcrumbs">
+        <a href="{{ '/' | relative_url }}">Home</a> /
+        <a href="{{ '/products/' | relative_url }}">Products</a> /
+        {{ page.name }}
+      </p>
+
+      <h1 class="pd-title">{{ page.name }}</h1>
+
+      <div class="pd-price-container">
+        <span class="pd-price">₹{{ page.price }}</span>
+
+        {% if page.original_price %}
+          <span class="pd-old-price">₹{{ page.original_price }}</span>
+        {% endif %}
+
+        {% if page.offer and page.original_price %}
+          {% assign discount = page.original_price | minus: page.price %}
+          {% assign perc = discount | times: 100.0 | divided_by: page.original_price | round %}
+          <span class="pd-offer-text">{{ perc }}% Off</span>
+        {% endif %}
+      </div>
+
+      <!-- ✅ THIS is where markdown content appears -->
+      <div class="pd-description">
+        {{ content }}
+      </div>
+
+      <!-- Accordion -->
+      <div class="pd-accordion-section">
+        <div class="accordion-item">
+          <div class="accordion-header">Product Details</div>
+          <div class="accordion-content">
+            <ul>
+              {% if page.specifications.material %}<li><b>Material:</b> {{ page.specifications.material }}</li>{% endif %}
+              {% if page.specifications.sizes %}<li><b>Sizes:</b> {{ page.specifications.sizes }}</li>{% endif %}
+              {% if page.specifications.colors %}<li><b>Colors:</b> {{ page.specifications.colors }}</li>{% endif %}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="pd-action-block">
+        <a href="{{ '/contact/' | relative_url }}" class="btn-buy">Inquire Now</a>
+        <a href="{{ '/products/' | relative_url }}" class="btn-whatsapp">Back</a>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 <script>
 function changeImage(src) {
-    document.getElementById('mainImage').src = src;
-    document.querySelectorAll('.pd-thumbnails img').forEach(img => {
-        img.classList.toggle('active-thumb', img.src === src);
-    });
-}
+  const img = document.getElementById("mainImage");
+  img.src = src;
 
-document.addEventListener('DOMContentLoaded', () => {
-    const items = document.querySelectorAll('.accordion-item');
-    items.forEach(item => {
-        const header = item.querySelector('.accordion-header');
-        header.addEventListener('click', () => {
-            const content = item.querySelector('.accordion-content');
-            const open = item.classList.toggle('open');
-            content.style.maxHeight = open ? content.scrollHeight + 'px' : 0;
-        });
-    });
-});
+  document.querySelectorAll(".pd-thumbnails img").forEach(i => {
+    i.classList.toggle("active-thumb", i.src === src);
+  });
+}
 </script>
