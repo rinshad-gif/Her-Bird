@@ -10,7 +10,7 @@ original_price: 2219
 offer: 68%
 category: Tunic
 featured: false
-image: /assets/images/uploads/imgi_17_zuznfpez_7abc7d3f43214bc6b31a17682d1a6022.jpg
+image: /assets/images/uploads/product-4.5.png
 gallery:
   - image: /assets/images/uploads/imgi_20_dcwvutdc_3122b6fb4b9840b69fb16356e18af912.jpg
   - image: /assets/images/uploads/imgi_18_13e0omfp_ee9425cddf3648ada06f78ccaf9ac5c1.jpg
