@@ -9,6 +9,7 @@ theme: null
 plugins:
   - jekyll-feed
 
+# Collections
 collections:
   products:
     output: true
@@ -22,6 +23,7 @@ collections:
     output: true
     permalink: /testimonials/:slug/
 
+# ✅ DEFAULTS (USING home.html)
 defaults:
   - scope:
       path: "_pages"
@@ -29,18 +31,19 @@ defaults:
     values:
       layout: page
 
-  # ✅ OPTION A FIX — use existing default layout
+  # ✅ Products use home layout
   - scope:
       path: ""
       type: products
     values:
-      layout: default
+      layout: home
 
+  # ✅ Exclusive products use home layout
   - scope:
       path: ""
       type: exclusive_products
     values:
-      layout: default
+      layout: home
 
   - scope:
       path: ""
@@ -48,6 +51,7 @@ defaults:
     values:
       layout: page
 
+# Include folders
 include:
   - _pages
   - _products
@@ -55,6 +59,7 @@ include:
   - _testimonials
   - admin
 
+# Exclude build junk
 exclude:
   - Gemfile
   - Gemfile.lock
