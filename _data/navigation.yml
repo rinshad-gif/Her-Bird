@@ -10,3 +10,5 @@
   link: "/about/"
 - name: "Contact"
   link: "/contact/"
+- name: "Admin"
+  link: "https://her-bird.netlify.app/admin"

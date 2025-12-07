@@ -1,11 +1,10 @@
 backend:
-  name: github
-  repo: rinshad-gif/Her-Bird
+  name: git-gateway
   branch: main
-  auth_endpoint: https://github-auth.decapcms.org/auth
+  site_url: https://her-bird.netlify.app
 
 media_folder: "assets/images/uploads"
-public_folder: "/Her-Bird/assets/images/uploads"
+public_folder: "/assets/images/uploads"
 
 publish_mode: editorial_workflow
 

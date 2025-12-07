@@ -9,55 +9,52 @@ theme: null
 plugins:
   - jekyll-feed
 
-# Collections configuration - FIXED
 collections:
   products:
     output: true
     permalink: /products/:slug/
+
   exclusive_products:
     output: true
-    permalink: /exclusive-products/:name/
+    permalink: /exclusive-products/:slug/
+
   testimonials:
     output: true
-    permalink: /testimonials/:name/
+    permalink: /testimonials/:slug/
 
-# Defaults
 defaults:
   - scope:
       path: "_pages"
-      type: "pages"
+      type: pages
     values:
-      layout: "page"
+      layout: page
 
-  # CHANGE 1: Update products to use the new detailed layout
+  # ✅ OPTION A FIX — use existing default layout
   - scope:
-      path: "_products"
-      type: "products"
+      path: ""
+      type: products
     values:
-      layout: "product-details" 
-
-  # CHANGE 2: Do the same for exclusive products
-  - scope:
-      path: "_exclusive_products"
-      type: "exclusive_products"
-    values:
-      layout: "product-details"
+      layout: default
 
   - scope:
-      path: "_testimonials"
-      type: "testimonials"
+      path: ""
+      type: exclusive_products
     values:
-      layout: "page"
+      layout: default
 
-# Include these directories
+  - scope:
+      path: ""
+      type: testimonials
+    values:
+      layout: page
+
 include:
   - _pages
   - _products
   - _exclusive_products
   - _testimonials
-  - admin  
+  - admin
 
-# Exclude from processing
 exclude:
   - Gemfile
   - Gemfile.lock
