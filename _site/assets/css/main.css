@@ -843,135 +843,135 @@ body {
 /* Testimonial */
 
 .client-endorsements-section {
-    padding: 5rem 0 3rem 0;
-}
-
-.endorsement-container {
-    max-width: 1400px; 
-    margin: 0 auto;
-    padding: 0 4vw;
-}
-
-.editorial-endorsement-heading {
+    padding: 5rem 0 4rem;
+    overflow: hidden;
+    background: #fafafa;
+    position: relative;
+  }
+  
+  .editorial-endorsement-heading {
     font-family: 'Playfair Display', serif;
     font-size: 3rem;
     text-align: center;
-    margin-bottom: 6rem; 
+    margin-bottom: 4.5rem;
     color: var(--brand-color);
     font-weight: 300;
-}
+  }
+  
+  /* FRAME */
+  .endorsement-marquee {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding-bottom: 4.5rem; /* ✅ creates space for CTA */
+  }
+  
+  /* TRACK */
+  .endorsement-track {
+    display: flex;
+    gap: 2.5rem;
+    white-space: nowrap;
+  }
 
-.endorsement-display-grid {
-    display: grid;
-    grid-template-columns: 1fr; 
-    
-    justify-content: center;
-    align-items: center;
-    
-    gap: 4rem;
-    margin-bottom: 5rem;
-}
-
-@media (min-width: 1024px) {
-    .endorsement-display-grid {
-        grid-template-columns: repeat(3, minmax(250px, 1fr)); 
-        gap: 2rem;
-        padding: 0 4rem; 
-    }
-}
-
-.endorsement-quote-item {
+  .endorsement-view-all-wrapper {
+    margin-top: 3.5rem;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+  
+  /* CARD – CLASSIC */
+  .endorsement-card {
+    flex: 0 0 auto;
+    width: 340px;
+    height: 260px;
+    padding: 2.4rem 2.2rem;
+  
+    background: #ffffff;
+    border: 1px solid #e7e7e7;
+    border-radius: 16px;
+  
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.endorsement-content {
-    margin-bottom: 2rem;
-}
-
-.quote-text {
+    justify-content: space-between;
+  
+    transition: transform 0.3s ease;
+  }
+  
+  .endorsement-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  /* QUOTE */
+  .quote-text {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.8rem;
+    font-size: 1.45rem;
     font-style: italic;
-    color: var(--text-color-2);
-    line-height: 1.5;
-    font-weight: 300;
+    line-height: 1.6;
+    color: #333;
+  
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  
     position: relative;
-    padding: 0 10px;
-}
-
-.quote-text::before {
+  }
+  
+  .quote-text::before {
     content: "“";
     position: absolute;
-    top: -20px;
-    left: -20px;
-    font-size: 4rem;
+    top: -1.1rem;
+    left: -0.8rem;
+    font-size: 3.5rem;
     color: var(--brand-color);
-    opacity: 0.5;
-}
-
-.endorsement-author {
-    color: forestgreen;
+    opacity: 0.25;
+  }
+  
+  /* AUTHOR */
+  .endorsement-author {
+    margin-top: 1.6rem;
+    text-align: center;
     font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    font-size: 0.75rem;
-    letter-spacing: 3px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.author-details-wrapper {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.2rem;
-}
-
-.author-name {
+    color: #555;
+  }
+  
+  .author-name {
     color: var(--brand-color);
     font-weight: 500;
-}
-
-.author-divider {
-    margin: 0 10px;
-    color: #555;
-}
-
-.author-company {
-    color: navy;
-    font-size: 0.7rem;
-    letter-spacing: 4px;
-}
-
-.endorsement-view-all-wrapper {
-    text-align: center;
-    margin-top: 5rem;
-}
-
-@media (max-width: 1023px) {
-    .client-endorsements-section {
-        padding: 3rem 0 2rem 0;
-    }
+  }
+  
+  .author-divider {
+    margin: 0 6px;
+  }
+  
+  .author-company {
+    margin-top: 0.3rem;
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+    color: #888;
+  }
+  
+  /* MOBILE */
+  @media (max-width: 768px) {
     .editorial-endorsement-heading {
-        font-size: 2rem;
-        margin-bottom: 4rem;
+      font-size: 2.2rem;
     }
-    .endorsement-display-grid {
-        grid-template-columns: 1fr; 
-        gap: 3rem;
+  
+    .endorsement-card {
+      width: 280px;
+      height: 230px;
+      padding: 1.8rem;
     }
+  
     .quote-text {
-        font-size: 1.3rem; 
+      font-size: 1.25rem;
+      -webkit-line-clamp: 5;
     }
-    .quote-text::before {
-        font-size: 4rem;
-        margin-left: 5px;
-    }
-}
+  }
 
 /* Page specific styles */
 .page-content {

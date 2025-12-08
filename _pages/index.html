@@ -103,48 +103,43 @@ permalink: /
 
 <section class="client-endorsements-section">
     <div class="endorsement-container">
-        <h2 class="editorial-endorsement-heading">Client Endorsements</h2>
-        
-        <div class="endorsement-display-grid">
-            {% if site.testimonials and site.testimonials.size > 0 %}
-                {% assign latest_testimonials = site.testimonials | sort: "date" | reverse %}
-                {% for testimonial in latest_testimonials limit: 3 %}
-                <div class="endorsement-quote-item">
-                    
-                    <div class="endorsement-content">
-                        {% if testimonial.description %}
-                            <p class="quote-text">{{ testimonial.description }}</p>
-                        {% elsif testimonial.content %}
-                            <p class="quote-text">{{ testimonial.content }}</p>
-                        {% endif %}
-                    </div>
-                    
-                    <div class="endorsement-author">
-                        <div class="author-details-wrapper">
-                            <span class="author-name">{{ testimonial.client_name }}</span>
-                            <span class="author-divider">|</span>
-                            <span class="author-location">{{ testimonial.client_location }}</span>
-                        </div>
-                        {% if testimonial.company %}
-                        <div class="author-company">{{ testimonial.company }}</div>
-                        {% endif %}
-                    </div>
-                </div>
-                {% endfor %}
-            {% else %}
-            <div class="editorial-placeholder">
-                <h3>Endorsements Curated Soon</h3>
+      <h2 class="editorial-endorsement-heading">Client Endorsements</h2>
+  
+      {% if site.testimonials and site.testimonials.size > 0 %}
+      <div class="endorsement-marquee">
+        <div class="endorsement-track" id="endorsementTrack">
+          {% for testimonial in site.testimonials %}
+          <article class="endorsement-card">
+            <p class="quote-text">
+              {{ testimonial.description | default: testimonial.content }}
+            </p>
+            <div class="endorsement-author">
+              <div class="author-details-wrapper">
+                <span class="author-name">{{ testimonial.client_name }}</span>
+                <span class="author-divider">|</span>
+                <span class="author-location">{{ testimonial.client_location }}</span>
+              </div>
+              {% if testimonial.company %}
+              <div class="author-company">{{ testimonial.company }}</div>
+              {% endif %}
             </div>
-            {% endif %}
+          </article>
+          {% endfor %}
         </div>
-        
-        <div class="endorsement-view-all-wrapper">
-            <a href="{{ '/clients/' | relative_url }}" class="editorial-view-all-link">
-                VIEW FULL CLIENT ROSTER
-            </a>
-        </div>
+      </div>
+      {% else %}
+      <div class="editorial-placeholder">
+        <h3>Endorsements Curated Soon</h3>
+      </div>
+      {% endif %}
+  
+      <div class="endorsement-view-all-wrapper">
+        <a href="{{ '/clients/' | relative_url }}" class="editorial-view-all-link">
+          VIEW FULL CLIENT ROSTER
+        </a>
+      </div>
     </div>
-</section>
+  </section>
 
 <!-- WhatsApp Floating Button -->
 <div class="whatsapp-float">
@@ -160,3 +155,41 @@ permalink: /
         <span class="whatsapp-text">Chat with us</span>
     </a>
 </div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const track = document.getElementById("endorsementTrack");
+      if (!track) return;
+    
+      const marquee = track.parentElement;
+    
+      // Duplicate content once (enough for seamless loop)
+      track.innerHTML += track.innerHTML;
+    
+      let position = 0;
+      let lastTime = performance.now();
+    
+      // Speed in pixels per second (adjust freely)
+      const SPEED = 40;
+    
+      function animate(now) {
+        const delta = now - lastTime;
+        lastTime = now;
+    
+        position -= (SPEED * delta) / 1000;
+    
+        const loopWidth = track.scrollWidth / 2;
+        if (-position >= loopWidth) {
+          position += loopWidth;
+        }
+    
+        track.style.transform = `translate3d(${position}px, 0, 0)`;
+    
+        requestAnimationFrame(animate);
+      }
+    
+      requestAnimationFrame(animate);
+    });
+    </script>
+    
+    

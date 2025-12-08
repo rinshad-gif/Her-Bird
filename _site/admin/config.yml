@@ -45,39 +45,44 @@ collections:
       - { label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
 
   - name: "exclusive_products"
-    label: "Exclusive Products"
-    folder: "_exclusive_products"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - { label: "Product Name", name: "name", widget: "string" }
-      - { label: "Slug", name: "slug", widget: "string" }
-      - { label: "Short Description", name: "description", widget: "text" }
-      - { label: "Full Description", name: "body", widget: "markdown" }
-      - { label: "Price", name: "price", widget: "number", value_type: "float" }
-      - { label: "Original Price", name: "original_price", widget: "number", value_type: "float", required: false }
-      - { label: "Offer/Discount", name: "offer", widget: "string", required: false }
-      - { label: "Category", name: "category", widget: "string" }
-      - { label: "Subcategory", name: "subcategory", widget: "string", required: false }
-      - { label: "Featured Product", name: "featured", widget: "boolean", default: false }
-      - { label: "Main Image", name: "image", widget: "image" }
-      - label: "Gallery Images"
-        name: "gallery"
-        widget: "list"
-        required: false
-        fields:
-          - { label: "Image", name: "image", widget: "image" }
-          - { label: "Alt Text", name: "alt", widget: "string", required: false }
-      - label: "Product Specifications"
-        name: "specifications"
-        widget: "object"
-        fields:
-          - { label: "Material", name: "material", widget: "string" }
-          - { label: "Care Instructions", name: "care", widget: "text" }
-          - { label: "Available Sizes", name: "sizes", widget: "string" }
-          - { label: "Available Colors", name: "colors", widget: "string" }
-          - { label: "Season", name: "season", widget: "select", options: ["All Season", "Spring", "Summer", "Fall", "Winter"], default: "All Season" }
-      - { label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
+  label: "Exclusive Products"
+  folder: "_exclusive_products"
+  create: true
+  slug: "{{slug}}"
+  fields:
+    - { label: "Product Name", name: "name", widget: "string" }
+    - {
+        label: "Slug",
+        name: "slug",
+        widget: "string",
+        pattern: ["^.{1,80}$", "Slug must be at most 80 characters"]
+      }
+    - { label: "Short Description", name: "description", widget: "text" }
+    - { label: "Full Description", name: "body", widget: "markdown" }
+    - { label: "Price", name: "price", widget: "number", value_type: "float" }
+    - { label: "Original Price", name: "original_price", widget: "number", value_type: "float", required: false }
+    - { label: "Offer/Discount", name: "offer", widget: "string", required: false }
+    - { label: "Category", name: "category", widget: "string" }
+    - { label: "Subcategory", name: "subcategory", widget: "string", required: false }
+    - { label: "Featured Product", name: "featured", widget: "boolean", default: false }
+    - { label: "Main Image", name: "image", widget: "image" }
+    - label: "Gallery Images"
+      name: "gallery"
+      widget: "list"
+      required: false
+      fields:
+        - { label: "Image", name: "image", widget: "image" }
+        - { label: "Alt Text", name: "alt", widget: "string", required: false }
+    - label: "Product Specifications"
+      name: "specifications"
+      widget: "object"
+      fields:
+        - { label: "Material", name: "material", widget: "string" }
+        - { label: "Care Instructions", name: "care", widget: "text" }
+        - { label: "Available Sizes", name: "sizes", widget: "string" }
+        - { label: "Available Colors", name: "colors", widget: "string" }
+        - { label: "Season", name: "season", widget: "select", options: ["All Season", "Spring", "Summer", "Fall", "Winter"], default: "All Season" }
+    - { label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD" }
 
 
   - name: "testimonials"
