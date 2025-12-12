@@ -1,0 +1,5 @@
+---
+layout: none
+permalink: /sitemap.xml
+---
+{% include_relative Her-Bird/sitemap.xml %}
