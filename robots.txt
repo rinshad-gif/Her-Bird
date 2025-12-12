@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rinshad-gif.github.io/Her-Bird/sitemap.xml
