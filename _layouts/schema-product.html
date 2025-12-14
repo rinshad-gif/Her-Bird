@@ -1,0 +1,51 @@
+<script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": {{ page.name | jsonify }},
+      "image": [
+        "{{ page.image | absolute_url }}"
+      ],
+      "description": {{ page.description | jsonify }},
+      "sku": "{{ page.slug }}",
+      "brand": {
+        "@type": "Brand",
+        "name": "Her Bird Boutique"
+      },
+      "offers": {
+        "@type": "Offer",
+        "url": "{{ page.url | absolute_url }}",
+        "priceCurrency": "INR",
+        "price": "{{ page.price }}",
+        "availability": "https://schema.org/InStock"
+      }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "{{ site.url }}{{ site.baseurl }}/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Products",
+          "item": "{{ site.url }}{{ site.baseurl }}/products/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": {{ page.name | jsonify }},
+          "item": "{{ page.url | absolute_url }}"
+        }
+      ]
+    }
+    </script>
+    

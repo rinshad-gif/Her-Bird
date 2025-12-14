@@ -1,0 +1,15 @@
+---
+layout: default
+---
+
+<main class="product-page">
+  <h1>{{ page.name }}</h1>
+
+  <img src="{{ page.image }}" alt="{{ page.name }}">
+
+  <p>{{ page.description }}</p>
+
+  <p>Price: ₹{{ page.price }}</p>
+</main>
+
+{% include schema-product.html %}

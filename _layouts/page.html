@@ -37,112 +37,6 @@
     
     <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
 
-  <!-- ---------- product schema breadcrumbs -->
-
-  {% if page.slug == "products" %}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "name": "Products",
-  "url": "{{ page.url | absolute_url }}"
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "{{ site.url }}{{ site.baseurl }}/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Products",
-      "item": "{{ page.url | absolute_url }}"
-    }
-  ]
-}
-</script>
-{% endif %}
-
-<!-- ------------ exclusive schema breadcrumbs -->
-
-{% if page.slug == "exclusive-products" %}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "name": "Exclusive Products",
-  "url": "{{ page.url | absolute_url }}"
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "{{ site.url }}{{ site.baseurl }}/"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Exclusive Products",
-      "item": "{{ page.url | absolute_url }}"
-    }
-  ]
-}
-</script>
-{% endif %}
-
-<!-- ------------- about markup -->
-
-{% if page.slug == "about" %}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "AboutPage",
-  "name": "About Her Bird",
-  "url": "{{ page.url | absolute_url }}"
-}
-</script>
-{% endif %}
-
-<!-- ----------- contact schema -->
-
-{% if page.slug == "contact" %}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ContactPage",
-  "name": "Contact Her Bird",
-  "url": "{{ page.url | absolute_url }}"
-}
-</script>
-{% endif %}
-
-<!-- ----------------- clients schema -->
-
-{% if page.slug == "clients" %}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Her Bird",
-  "url": "{{ site.url }}{{ site.baseurl }}/"
-}
-</script>
-{% endif %}
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-7PNG3K5747"></script>
@@ -153,6 +47,30 @@
 
   gtag('config', 'G-7PNG3K5747');
 </script>
+
+<!-- BreadcrumbList schema -->
+
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "{{ site.url }}{{ site.baseurl }}/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "{{ page.title }}",
+        "item": "{{ page.url | absolute_url }}"
+      }
+    ]
+  }
+  </script>
+  
 
 </body>
 </html>
