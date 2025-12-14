@@ -608,6 +608,18 @@ permalink: /exclusive-products/
     .product-card:nth-child(6) { animation-delay: 0.3s; }
     .product-card:nth-child(7) { animation-delay: 0.35s; }
     .product-card:nth-child(8) { animation-delay: 0.4s; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 </style>
 
 <div class="products-page-container">
@@ -622,8 +634,26 @@ permalink: /exclusive-products/
         
         <div class="filter-categories">
             <button class="filter-btn active" data-filter="all">All Items</button>
+
+            <nav class="category-links visually-hidden" aria-label="Product categories">
+                {% for category in categories %}
+                  <a href="/products/{{ category | slugify }}/">
+                    {{ category }} Collection
+                  </a>
+                {% endfor %}
+            </nav>
+
             {% for category in categories %}
             <button class="filter-btn" data-filter="{{ category | slugify }}">{{ category }}</button>
+
+            <nav class="category-links visually-hidden" aria-label="Product categories">
+                {% for category in categories %}
+                  <a href="/products/{{ category | slugify }}/">
+                    {{ category }} Collection
+                  </a>
+                {% endfor %}
+            </nav>
+
             {% endfor %}
         </div>
 
@@ -650,14 +680,18 @@ permalink: /exclusive-products/
                         <div class="exclusive-badge">Exclusive</div> 
                         
                         {% if product.image %}
-                        <img src="{{ product.image | relative_url }}" alt="{{ product.name }}" loading="lazy" decoding="async">
+                        <img src="{{ product.image | relative_url }}" alt="{{ product.name }} - exclusive designer wear by Her Bird Boutique" loading="lazy" decoding="async">
                         {% endif %}
                         <div class="product-overlay">
                             <button class="view-product-btn">View Product</button>
                         </div>
                     </div>
                     <div class="product-info">
-                        <h3 class="product-title">{{ product.name }}</h3>
+                        <h3 class="product-title">
+                            <a class="product-title" href="{{ product.url | relative_url }}" style="text-decoration: none;">
+                                {{ product.name }}
+                            </a>
+                        </h3>
                         <div class="product-price-section">
                             <span class="product-price">₹{{ product.price }}</span>
                             {% if product.offer %}

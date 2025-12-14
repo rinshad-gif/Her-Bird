@@ -46,7 +46,11 @@ permalink: /
                     </a>
                     
                     <div class="product-editorial-info">
-                        <h3 class="product-editorial-name">{{ product.name }}</h3>
+                        <h3 class="product-editorial-name">
+                            <a href="{{ product.url | relative_url }}" style="text-decoration: none; color: black;">
+                                {{ product.name }}
+                            </a>
+                        </h3>
                         <span class="product-editorial-price">₹{{ product.price }}</span>
                     </div>
                 </div>

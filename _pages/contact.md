@@ -103,6 +103,14 @@ permalink: /contact/
         </a>
     </div>
 
+    <p class="page-subtitle" style="padding-top: 100px;">
+            A curated collection of sophisticated experiences shared by our valued clients.
+            <br>
+            <a href="{{ '/' | relative_url }}" style="color:#C64836; font-weight:600; text-decoration: none; color: var(--brand-color);">
+              Explore Her Bird Boutique Collections 
+            </a>
+    </p>
+
 </div>
 
 <style>

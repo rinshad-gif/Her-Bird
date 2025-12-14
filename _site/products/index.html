@@ -685,6 +685,18 @@
     .product-card:nth-child(6) { animation-delay: 0.3s; }
     .product-card:nth-child(7) { animation-delay: 0.35s; }
     .product-card:nth-child(8) { animation-delay: 0.4s; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 </style>
 
 <div class="products-page-container">
@@ -699,16 +711,166 @@
         
         <div class="filter-categories">
             <button class="filter-btn active" data-filter="all">All Items</button>
+
+            <nav class="category-links visually-hidden" aria-label="Product categories">
+                
+                  <a href="/products/dress/">
+                    Dress Collection
+                  </a>
+                
+                  <a href="/products/kurta/">
+                    Kurta Collection
+                  </a>
+                
+                  <a href="/products/kurti/">
+                    Kurti Collection
+                  </a>
+                
+                  <a href="/products/saree/">
+                    Saree Collection
+                  </a>
+                
+                  <a href="/products/tunic/">
+                    Tunic Collection
+                  </a>
+                
+            </nav>
+
             
             <button class="filter-btn" data-filter="dress">Dress</button>
+
+            <nav class="category-links visually-hidden" aria-label="Product categories">
+                
+                  <a href="/products/dress/">
+                    Dress Collection
+                  </a>
+                
+                  <a href="/products/kurta/">
+                    Kurta Collection
+                  </a>
+                
+                  <a href="/products/kurti/">
+                    Kurti Collection
+                  </a>
+                
+                  <a href="/products/saree/">
+                    Saree Collection
+                  </a>
+                
+                  <a href="/products/tunic/">
+                    Tunic Collection
+                  </a>
+                
+            </nav>
+
             
             <button class="filter-btn" data-filter="kurta">Kurta</button>
+
+            <nav class="category-links visually-hidden" aria-label="Product categories">
+                
+                  <a href="/products/dress/">
+                    Dress Collection
+                  </a>
+                
+                  <a href="/products/kurta/">
+                    Kurta Collection
+                  </a>
+                
+                  <a href="/products/kurti/">
+                    Kurti Collection
+                  </a>
+                
+                  <a href="/products/saree/">
+                    Saree Collection
+                  </a>
+                
+                  <a href="/products/tunic/">
+                    Tunic Collection
+                  </a>
+                
+            </nav>
+
             
             <button class="filter-btn" data-filter="kurti">Kurti</button>
+
+            <nav class="category-links visually-hidden" aria-label="Product categories">
+                
+                  <a href="/products/dress/">
+                    Dress Collection
+                  </a>
+                
+                  <a href="/products/kurta/">
+                    Kurta Collection
+                  </a>
+                
+                  <a href="/products/kurti/">
+                    Kurti Collection
+                  </a>
+                
+                  <a href="/products/saree/">
+                    Saree Collection
+                  </a>
+                
+                  <a href="/products/tunic/">
+                    Tunic Collection
+                  </a>
+                
+            </nav>
+
             
             <button class="filter-btn" data-filter="saree">Saree</button>
+
+            <nav class="category-links visually-hidden" aria-label="Product categories">
+                
+                  <a href="/products/dress/">
+                    Dress Collection
+                  </a>
+                
+                  <a href="/products/kurta/">
+                    Kurta Collection
+                  </a>
+                
+                  <a href="/products/kurti/">
+                    Kurti Collection
+                  </a>
+                
+                  <a href="/products/saree/">
+                    Saree Collection
+                  </a>
+                
+                  <a href="/products/tunic/">
+                    Tunic Collection
+                  </a>
+                
+            </nav>
+
             
             <button class="filter-btn" data-filter="tunic">Tunic</button>
+
+            <nav class="category-links visually-hidden" aria-label="Product categories">
+                
+                  <a href="/products/dress/">
+                    Dress Collection
+                  </a>
+                
+                  <a href="/products/kurta/">
+                    Kurta Collection
+                  </a>
+                
+                  <a href="/products/kurti/">
+                    Kurti Collection
+                  </a>
+                
+                  <a href="/products/saree/">
+                    Saree Collection
+                  </a>
+                
+                  <a href="/products/tunic/">
+                    Tunic Collection
+                  </a>
+                
+            </nav>
+
             
         </div>
 
@@ -730,14 +892,18 @@
                 <a href="/Her-Bird/products/floral-kurta-set/" class="product-image-link">
                     <div class="product-image-wrapper">
                         
-                        <img src="/Her-Bird/assets/images/uploads/imgi_24_5f9kphit_378c7685e6d743aea35fa4bcfebda6f5.png" alt="Floral Printed Cotton Kurta with Trousers &amp; Dupatta" loading="lazy" decoding="async" />
+                        <img src="/Her-Bird/assets/images/uploads/imgi_24_5f9kphit_378c7685e6d743aea35fa4bcfebda6f5.png" alt="Floral Printed Cotton Kurta with Trousers &amp; Dupatta – women’s fashion product" loading="lazy" decoding="async" />
                         
                         <div class="product-overlay">
                             <button class="view-product-btn">View Product</button>
                         </div>
                     </div>
                     <div class="product-info">
-                        <h3 class="product-title">Floral Printed Cotton Kurta with Trousers &amp; Dupatta</h3>
+                        <h3 class="product-title">
+                            <a class="product-title" href="/Her-Bird/products/floral-kurta-set/" style="text-decoration: none;">
+                                Floral Printed Cotton Kurta with Trousers &amp; Dupatta
+                            </a>
+                        </h3>
                         <div class="product-price-section">
                             <span class="product-price">₹1689</span>
                             
@@ -753,14 +919,18 @@
                 <a href="/Her-Bird/products/floral-embroidered-set-md/" class="product-image-link">
                     <div class="product-image-wrapper">
                         
-                        <img src="/Her-Bird/assets/images/uploads/imgi_82_bnahxzl0_45e3ad5d53414a7c95962ab35d428ff7.png" alt="Floral Embroidered V Neck Zari Velvet Kurta With Trousers &amp; Dupatta" loading="lazy" decoding="async" />
+                        <img src="/Her-Bird/assets/images/uploads/imgi_82_bnahxzl0_45e3ad5d53414a7c95962ab35d428ff7.png" alt="Floral Embroidered V Neck Zari Velvet Kurta With Trousers &amp; Dupatta – women’s fashion product" loading="lazy" decoding="async" />
                         
                         <div class="product-overlay">
                             <button class="view-product-btn">View Product</button>
                         </div>
                     </div>
                     <div class="product-info">
-                        <h3 class="product-title">Floral Embroidered V Neck Zari Velvet Kurta With Trousers &amp; Dupatta</h3>
+                        <h3 class="product-title">
+                            <a class="product-title" href="/Her-Bird/products/floral-embroidered-set-md/" style="text-decoration: none;">
+                                Floral Embroidered V Neck Zari Velvet Kurta With Trousers &amp; Dupatta
+                            </a>
+                        </h3>
                         <div class="product-price-section">
                             <span class="product-price">₹1652</span>
                             
@@ -776,14 +946,18 @@
                 <a href="/Her-Bird/products/woven-design-saree-with-blouse-piece/" class="product-image-link">
                     <div class="product-image-wrapper">
                         
-                        <img src="/Her-Bird/assets/images/uploads/imgi_21_eesksi38_b42085c57fed4f2eb0327c608a9b03e1.jpg" alt="Woven Design Saree With Blouse Piece" loading="lazy" decoding="async" />
+                        <img src="/Her-Bird/assets/images/uploads/imgi_21_eesksi38_b42085c57fed4f2eb0327c608a9b03e1.jpg" alt="Woven Design Saree With Blouse Piece – women’s fashion product" loading="lazy" decoding="async" />
                         
                         <div class="product-overlay">
                             <button class="view-product-btn">View Product</button>
                         </div>
                     </div>
                     <div class="product-info">
-                        <h3 class="product-title">Woven Design Saree With Blouse Piece</h3>
+                        <h3 class="product-title">
+                            <a class="product-title" href="/Her-Bird/products/woven-design-saree-with-blouse-piece/" style="text-decoration: none;">
+                                Woven Design Saree With Blouse Piece
+                            </a>
+                        </h3>
                         <div class="product-price-section">
                             <span class="product-price">₹618</span>
                             
@@ -799,14 +973,18 @@
                 <a href="/Her-Bird/products/graphic-printed-extended-sleeves-kaftan-tunic/" class="product-image-link">
                     <div class="product-image-wrapper">
                         
-                        <img src="/Her-Bird/assets/images/uploads/imgi_22_8bb19e18-4994-487e-97af-9d866b3e3e881729655599634-letsdressup-graphic-printed-extended-sleeves-kaftan-tunic-49-1.jpg" alt="Graphic Printed Extended Sleeves Kaftan Tunic" loading="lazy" decoding="async" />
+                        <img src="/Her-Bird/assets/images/uploads/imgi_22_8bb19e18-4994-487e-97af-9d866b3e3e881729655599634-letsdressup-graphic-printed-extended-sleeves-kaftan-tunic-49-1.jpg" alt="Graphic Printed Extended Sleeves Kaftan Tunic – women’s fashion product" loading="lazy" decoding="async" />
                         
                         <div class="product-overlay">
                             <button class="view-product-btn">View Product</button>
                         </div>
                     </div>
                     <div class="product-info">
-                        <h3 class="product-title">Graphic Printed Extended Sleeves Kaftan Tunic</h3>
+                        <h3 class="product-title">
+                            <a class="product-title" href="/Her-Bird/products/graphic-printed-extended-sleeves-kaftan-tunic/" style="text-decoration: none;">
+                                Graphic Printed Extended Sleeves Kaftan Tunic
+                            </a>
+                        </h3>
                         <div class="product-price-section">
                             <span class="product-price">₹799</span>
                             
@@ -822,14 +1000,18 @@
                 <a href="/Her-Bird/products/maroon-solid-puff-sleeves-midi-dress/" class="product-image-link">
                     <div class="product-image-wrapper">
                         
-                        <img src="/Her-Bird/assets/images/uploads/imgi_23_90e5e786-c1d9-4712-8b19-26a7aaa3660e1662968696986anaynamaroonmididress1.jpg" alt="Maroon Solid Puff Sleeves V Neck Embroidered Detail Midi Dress" loading="lazy" decoding="async" />
+                        <img src="/Her-Bird/assets/images/uploads/imgi_23_90e5e786-c1d9-4712-8b19-26a7aaa3660e1662968696986anaynamaroonmididress1.jpg" alt="Maroon Solid Puff Sleeves V Neck Embroidered Detail Midi Dress – women’s fashion product" loading="lazy" decoding="async" />
                         
                         <div class="product-overlay">
                             <button class="view-product-btn">View Product</button>
                         </div>
                     </div>
                     <div class="product-info">
-                        <h3 class="product-title">Maroon Solid Puff Sleeves V Neck Embroidered Detail Midi Dress</h3>
+                        <h3 class="product-title">
+                            <a class="product-title" href="/Her-Bird/products/maroon-solid-puff-sleeves-midi-dress/" style="text-decoration: none;">
+                                Maroon Solid Puff Sleeves V Neck Embroidered Detail Midi Dress
+                            </a>
+                        </h3>
                         <div class="product-price-section">
                             <span class="product-price">₹1162</span>
                             
@@ -845,14 +1027,18 @@
                 <a href="/Her-Bird/products/ethnic-motifs-printed-tiered-kurta-with-pyjamas/" class="product-image-link">
                     <div class="product-image-wrapper">
                         
-                        <img src="/Her-Bird/assets/images/uploads/imgi_14_k2pvx1xg_65ffffb768704fbfb3185084d54c2fda.jpg" alt="Ethnic Motifs Printed Tiered Kurta with Pyjamas" loading="lazy" decoding="async" />
+                        <img src="/Her-Bird/assets/images/uploads/imgi_14_k2pvx1xg_65ffffb768704fbfb3185084d54c2fda.jpg" alt="Ethnic Motifs Printed Tiered Kurta with Pyjamas – women’s fashion product" loading="lazy" decoding="async" />
                         
                         <div class="product-overlay">
                             <button class="view-product-btn">View Product</button>
                         </div>
                     </div>
                     <div class="product-info">
-                        <h3 class="product-title">Ethnic Motifs Printed Tiered Kurta with Pyjamas</h3>
+                        <h3 class="product-title">
+                            <a class="product-title" href="/Her-Bird/products/ethnic-motifs-printed-tiered-kurta-with-pyjamas/" style="text-decoration: none;">
+                                Ethnic Motifs Printed Tiered Kurta with Pyjamas
+                            </a>
+                        </h3>
                         <div class="product-price-section">
                             <span class="product-price">₹1739</span>
                             
@@ -868,14 +1054,18 @@
                 <a href="/Her-Bird/products/ethnic-motifs-printed-v-neck-a-line-kurti/" class="product-image-link">
                     <div class="product-image-wrapper">
                         
-                        <img src="/Her-Bird/assets/images/uploads/imgi_18_ose85bt8_5e157ef6ae484358bcf63dec717ecb16.jpg" alt="Ethnic Motifs Printed V-Neck A-Line Kurti" loading="lazy" decoding="async" />
+                        <img src="/Her-Bird/assets/images/uploads/imgi_18_ose85bt8_5e157ef6ae484358bcf63dec717ecb16.jpg" alt="Ethnic Motifs Printed V-Neck A-Line Kurti – women’s fashion product" loading="lazy" decoding="async" />
                         
                         <div class="product-overlay">
                             <button class="view-product-btn">View Product</button>
                         </div>
                     </div>
                     <div class="product-info">
-                        <h3 class="product-title">Ethnic Motifs Printed V-Neck A-Line Kurti</h3>
+                        <h3 class="product-title">
+                            <a class="product-title" href="/Her-Bird/products/ethnic-motifs-printed-v-neck-a-line-kurti/" style="text-decoration: none;">
+                                Ethnic Motifs Printed V-Neck A-Line Kurti
+                            </a>
+                        </h3>
                         <div class="product-price-section">
                             <span class="product-price">₹475</span>
                             
@@ -891,14 +1081,18 @@
                 <a href="/Her-Bird/products/floral-embroidered-empire-dupatta/" class="product-image-link">
                     <div class="product-image-wrapper">
                         
-                        <img src="/Her-Bird/assets/images/uploads/imgi_82_d2cyfusb_ad5c73b9e4f04578a489eeaaec536d95.jpg" alt="Floral Embroidered Empire Thread Work Kurta with Trousers &amp; With Dupatta" loading="lazy" decoding="async" />
+                        <img src="/Her-Bird/assets/images/uploads/imgi_82_d2cyfusb_ad5c73b9e4f04578a489eeaaec536d95.jpg" alt="Floral Embroidered Empire Thread Work Kurta with Trousers &amp; With Dupatta – women’s fashion product" loading="lazy" decoding="async" />
                         
                         <div class="product-overlay">
                             <button class="view-product-btn">View Product</button>
                         </div>
                     </div>
                     <div class="product-info">
-                        <h3 class="product-title">Floral Embroidered Empire Thread Work Kurta with Trousers &amp; With Dupatta</h3>
+                        <h3 class="product-title">
+                            <a class="product-title" href="/Her-Bird/products/floral-embroidered-empire-dupatta/" style="text-decoration: none;">
+                                Floral Embroidered Empire Thread Work Kurta with Trousers &amp; With Dupatta
+                            </a>
+                        </h3>
                         <div class="product-price-section">
                             <span class="product-price">₹1698</span>
                             
@@ -914,14 +1108,18 @@
                 <a href="/Her-Bird/products/navy-blue-printed-short-kurti/" class="product-image-link">
                     <div class="product-image-wrapper">
                         
-                        <img src="/Her-Bird/assets/images/uploads/imgi_20_696a5e8c-7514-4a41-abaf-2d65c34fc78c1667974689924-women-dark-blue-printed-short-kurti-9801667974689341-1.jpg" alt="Navy Blue Printed Short Kurti" loading="lazy" decoding="async" />
+                        <img src="/Her-Bird/assets/images/uploads/imgi_20_696a5e8c-7514-4a41-abaf-2d65c34fc78c1667974689924-women-dark-blue-printed-short-kurti-9801667974689341-1.jpg" alt="Navy Blue Printed Short Kurti – women’s fashion product" loading="lazy" decoding="async" />
                         
                         <div class="product-overlay">
                             <button class="view-product-btn">View Product</button>
                         </div>
                     </div>
                     <div class="product-info">
-                        <h3 class="product-title">Navy Blue Printed Short Kurti</h3>
+                        <h3 class="product-title">
+                            <a class="product-title" href="/Her-Bird/products/navy-blue-printed-short-kurti/" style="text-decoration: none;">
+                                Navy Blue Printed Short Kurti
+                            </a>
+                        </h3>
                         <div class="product-price-section">
                             <span class="product-price">₹863</span>
                             
@@ -937,14 +1135,18 @@
                 <a href="/Her-Bird/products/orange-pure-cotton-floral-printed-flared-tunic/" class="product-image-link">
                     <div class="product-image-wrapper">
                         
-                        <img src="/Her-Bird/assets/images/uploads/imgi_17_zuznfpez_7abc7d3f43214bc6b31a17682d1a6022.jpg" alt="Orange Pure Cotton Floral Printed Flared Tunic" loading="lazy" decoding="async" />
+                        <img src="/Her-Bird/assets/images/uploads/imgi_17_zuznfpez_7abc7d3f43214bc6b31a17682d1a6022.jpg" alt="Orange Pure Cotton Floral Printed Flared Tunic – women’s fashion product" loading="lazy" decoding="async" />
                         
                         <div class="product-overlay">
                             <button class="view-product-btn">View Product</button>
                         </div>
                     </div>
                     <div class="product-info">
-                        <h3 class="product-title">Orange Pure Cotton Floral Printed Flared Tunic</h3>
+                        <h3 class="product-title">
+                            <a class="product-title" href="/Her-Bird/products/orange-pure-cotton-floral-printed-flared-tunic/" style="text-decoration: none;">
+                                Orange Pure Cotton Floral Printed Flared Tunic
+                            </a>
+                        </h3>
                         <div class="product-price-section">
                             <span class="product-price">₹700</span>
                             
@@ -960,14 +1162,18 @@
                 <a href="/Her-Bird/products/woven-design-pure-georgette-saree/" class="product-image-link">
                     <div class="product-image-wrapper">
                         
-                        <img src="/Her-Bird/assets/images/uploads/imgi_84_73d22d22-6ef2-459a-9df0-8366e6db85eb1716998292328kaliniwomensdyedpuregeorgetteblacksaree1.jpg" alt="Woven Design Pure Georgette Saree" loading="lazy" decoding="async" />
+                        <img src="/Her-Bird/assets/images/uploads/imgi_84_73d22d22-6ef2-459a-9df0-8366e6db85eb1716998292328kaliniwomensdyedpuregeorgetteblacksaree1.jpg" alt="Woven Design Pure Georgette Saree – women’s fashion product" loading="lazy" decoding="async" />
                         
                         <div class="product-overlay">
                             <button class="view-product-btn">View Product</button>
                         </div>
                     </div>
                     <div class="product-info">
-                        <h3 class="product-title">Woven Design Pure Georgette Saree</h3>
+                        <h3 class="product-title">
+                            <a class="product-title" href="/Her-Bird/products/woven-design-pure-georgette-saree/" style="text-decoration: none;">
+                                Woven Design Pure Georgette Saree
+                            </a>
+                        </h3>
                         <div class="product-price-section">
                             <span class="product-price">₹405</span>
                             
@@ -983,14 +1189,18 @@
                 <a href="/Her-Bird/products/floral-printed-shift-dress/" class="product-image-link">
                     <div class="product-image-wrapper">
                         
-                        <img src="/Her-Bird/assets/images/uploads/imgi_27_txvzz1vn_4fd7af73a88845b4be3ada92d2b765b6.jpg" alt="Floral Printed Shift Dress" loading="lazy" decoding="async" />
+                        <img src="/Her-Bird/assets/images/uploads/imgi_27_txvzz1vn_4fd7af73a88845b4be3ada92d2b765b6.jpg" alt="Floral Printed Shift Dress – women’s fashion product" loading="lazy" decoding="async" />
                         
                         <div class="product-overlay">
                             <button class="view-product-btn">View Product</button>
                         </div>
                     </div>
                     <div class="product-info">
-                        <h3 class="product-title">Floral Printed Shift Dress</h3>
+                        <h3 class="product-title">
+                            <a class="product-title" href="/Her-Bird/products/floral-printed-shift-dress/" style="text-decoration: none;">
+                                Floral Printed Shift Dress
+                            </a>
+                        </h3>
                         <div class="product-price-section">
                             <span class="product-price">₹949</span>
                             
@@ -1087,35 +1297,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
 
                 <div class="footer-column footer-col-links">
-                    <h4 class="footer-title">Shop Links</h4>
+                    <h4 class="footer-title">Company</h4>
                     <ul class="footer-nav-list">
-                        
-                        
-                        <li><a href="/Her-Bird/">Home</a></li>
-                        
-                        
-                        
-                        <li><a href="/Her-Bird/products/">Products</a></li>
-                        
-                        
-                        
-                        <li><a href="/Her-Bird/exclusive-products/">Exclusive</a></li>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        <li><a href="/Her-Bird/contact/">Contact</a></li>
-                        
-                        
-                        
-                        <li><a href="https://her-bird.netlify.app/admin">Admin</a></li>
-                        
-                        
+                      <li><a href="/Her-Bird/about/">About Her Bird Boutique</a></li>
+                      <li><a href="/Her-Bird/contact/">Contact Her Bird</a></li>
+                      <li><a href="/Her-Bird/products/">Women’s Fashion Collections</a></li>
+                      <li><a href="/Her-Bird/exclusive-products/">Exclusive Couture Designs</a></li>
                     </ul>
-                </div>
+                  </div>
 
                 <div class="footer-column footer-col-contact">
                     <h4 class="footer-title">Get in Touch</h4>

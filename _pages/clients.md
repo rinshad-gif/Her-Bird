@@ -346,7 +346,9 @@ permalink: /clients/
 
 <div class="clients-page">
     <div class="container">
+        <center>
         <h2 class="collection-header">Client Testimonials</h2>
+        </center>
         <p class="page-subtitle">A curated collection of sophisticated experiences shared by our valued clients.</p>
         
         <div class="testimonials-grid-full">
@@ -397,5 +399,13 @@ permalink: /clients/
                  </svg>
              </div>
         </a>
+
+        <p class="page-subtitle" style="padding-top: 100px;">
+            A curated collection of sophisticated experiences shared by our valued clients.
+            <br>
+            <a href="{{ '/' | relative_url }}" style="color:#C64836; font-weight:600; text-decoration: none; color: var(--brand-color);">
+              Explore Her Bird Boutique Collections 
+            </a>
+        </p>
 
 </div>
