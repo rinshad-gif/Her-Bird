@@ -5,7 +5,7 @@ description: |-
   100% Original Products |
   Pay on delivery might be available |
   Easy 5 days returns and exchanges
-price: 6990
+price: 6500
 category: Tunic
 featured: true
 image: /assets/images/uploads/imgi_37_b1d6037e-851e-4104-b5c4-9ba5d67098bf1734169987785womenblackmetalliccottonlinenselfdesignmandarincollarflaredt1.jpg
